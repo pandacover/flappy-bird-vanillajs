@@ -1,0 +1,114 @@
+*::before, *, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #00b5e2;
+    height: 100vh;
+}
+
+#app {
+    min-width: 100vw;
+    background: #00b5e2;
+}
+
+#bird {
+    position: absolute;
+    z-index: 9;
+    border-radius: 50%;
+    transition: transform 100ms ease-in-out;
+}
+
+#bird-eyes {
+    top: 6px;
+    right: 10px;
+    content: " ";
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+}
+
+#bird-beak {
+    top: 50%;
+    right: 0;
+    width: 8px;
+    height: 15px;
+    content: " ";
+    display: block;
+    position: absolute;
+    transform: translate(100%, -50%);
+    border-radius: 0 50% 50% 0;
+}
+
+#bird-wing {
+    width: 40%;
+    height: 80%;
+    position: absolute;
+    top: 45%;
+    transform: rotate(40deg);
+    box-shadow: 0 0 4px 2px #bbbb00;
+    border-radius: 50% 50% 0 0;
+}
+
+.obstacle-wrapper {
+    height: 100%;
+    position: relative;
+    width: calc(100% + 20px);
+    transform: translate(-10px);
+}
+
+.obstacle-curve {
+    content: " ";
+    left: 0;
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.obstacle-curve.top {
+    bottom: 0;
+    transform: translateY(-100%);
+}
+
+.obstacle-curve.top::before {
+    width: 100%;
+    content: " ";
+    height: 30px;
+    position: absolute;
+    background: inherit;
+    transform: translate(0, 20%);
+}
+
+.obstacle-curve.bottom::before {
+    top: 0;
+    width: 100%;
+    content: " ";
+    height: 30px;
+    position: absolute;
+    background: inherit;
+    transform: translate(0, -85%);
+}
+
+.cloud {
+    z-index: 8;
+    position: absolute;
+    border-radius: 50%;
+    transform-style: preserve-3d;
+    background: #ccc;
+    translate: -50% -50%;
+}
+
+.cloud-fluff {
+    border-radius: 50%;
+    position: absolute;
+    background: #ccc;
+    transform: translateZ(-10px);
+    translate: -50% -50%;
+    box-shadow: 0 0 4px 3px #aaa;
+}
